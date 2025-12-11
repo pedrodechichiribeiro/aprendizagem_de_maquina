@@ -1,9 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-/* * DEFINIÇÕES DO SISTEMA
- * 10 Dígitos (0 a 9)
- * Cada dígito é uma matriz 5x4 = 20 entradas
+/*10 Dígitos (0 a 9)
+ *cada dígito é uma matriz 5x4 = 20 entradas
  */
 #define NUM_AMOSTRAS 10
 #define NUM_ENTRADAS 20
@@ -21,11 +20,9 @@ void imprimir_digito(int entradas[NUM_ENTRADAS]) {
 }
 
 int main() {
-    /* * BANCO DE DADOS DE TREINAMENTO (Baseado na imagem digitos.png)
-     * 1 = Pixel Preto, -1 = Pixel Branco
-     * Ordem: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9
-     * (Note: Transcrevi os padrões visualmente das imagens fornecidas)
-     */
+    /* 1 = Pixel Preto, -1 = Pixel Branco
+     * ordem: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 */
+
     int dados_treino[NUM_AMOSTRAS][NUM_ENTRADAS] = {
         // 0
         { -1,  1,  1, -1,
@@ -90,15 +87,13 @@ int main() {
     };
 
     /*
-     * REDE NEURAL: 10 NEURÔNIOS
-     * weights[10][20] -> 10 neurônios, cada um com 20 pesos
+     * rede neural: 10 NEURÔNIOS
      * bias[10] -> 1 viés para cada neurônio (b0 a b9)
      */
     int pesos[NUM_AMOSTRAS][NUM_ENTRADAS];
     int bias[NUM_AMOSTRAS]; // b0, b1, ..., b9
     
-    // Inicialização (Passo 0 do algoritmo no PDF)
-    // Inicializamos tudo com 0
+    // inicializamos tudo com 0
     for(int n = 0; n < NUM_AMOSTRAS; n++) {
         bias[n] = 0;
         for(int w = 0; w < NUM_ENTRADAS; w++) {
